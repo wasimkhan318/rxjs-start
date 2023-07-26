@@ -12,8 +12,11 @@ export class StockListComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.stockList
-    this.stockList.get().subscribe((result) => {
-      this.test = result.d
+    this.stockList.getConcatAll().subscribe((result) => {
+      this.test = result[0].d
+      console.log(result)
+    })
+    this.stockList.getConcatMap().subscribe((result) => {
       console.log(result)
     })
   }
